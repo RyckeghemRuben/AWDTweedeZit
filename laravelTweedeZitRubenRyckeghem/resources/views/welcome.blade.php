@@ -21,6 +21,7 @@
             <a href="#">details</a>
             <hr>
         </div>
+
     </div>
 
     @endsection

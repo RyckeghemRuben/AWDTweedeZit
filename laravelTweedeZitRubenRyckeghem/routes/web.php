@@ -13,9 +13,13 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
+
+Route::get('/about', function () {
+    return view('other.about');
+})->name('about');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/app', 'HomeController@index')->name('loggedin');
