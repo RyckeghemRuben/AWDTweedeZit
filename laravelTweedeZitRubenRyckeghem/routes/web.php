@@ -51,6 +51,11 @@ Route::get('/item/{id}', function ($id) {
     return view('content.item',['nieuweVar'=>$data]);
 })->name('item');
 
+//item create
+Route::post('/itemcreate',function (){
+return redirect()->route('admin.index');
+})->name('itemcreate');
+
 //admin routes
 Route::name('admin.')->group(function (){
 
