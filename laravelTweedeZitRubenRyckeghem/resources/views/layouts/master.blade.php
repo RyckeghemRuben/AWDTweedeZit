@@ -8,19 +8,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Hello, world!</title>
+    <title>Zoekertjes</title>
     <style type="text/css">
-        h2{
-            color: #1d68a7;
-            float: left;
-            width: 100%;
-        }
-        .container{
-            width: 20%;
-            margin-left: 40%;
-            margin-right: 40%;
 
-        }
+
     </style>
 </head>
 <body>

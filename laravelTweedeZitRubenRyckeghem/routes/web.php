@@ -23,3 +23,47 @@ Route::get('/about', function () {
 Auth::routes();
 
 Route::get('/app', 'HomeController@index')->name('loggedin');
+
+
+//item route
+Route::get('/item/{id}', function ($id) {
+
+    if($id=='1'){
+
+        $data= [
+            'titel' => 'Boardgames voor jong en oud',
+            'staat' => 'Gebruikt'
+        ];
+
+    }elseif ($id=='2'){
+        $data= [
+            'titel' => 'Gitaar van Gibson in goede staat',
+            'staat' => 'Gebruikt'
+        ];
+    }elseif ($id=='3'){
+        $data= [
+            'titel' => 'Rode voetbal van Nike',
+            'staat' => 'Nieuw'
+        ];
+    }
+
+
+    return view('content.item',['nieuweVar'=>$data]);
+})->name('item');
+
+//admin routes
+Route::name('admin.')->group(function (){
+
+    Route::get('/admincreate', function () {
+        return view('admin.create');
+    })->name('create');
+
+    Route::get('/adminedit', function () {
+        return view('admin.edit');
+    })->name('edit');
+
+    Route::get('/adminindex', function () {
+        return view('admin.index');
+    })->name('index');
+
+});

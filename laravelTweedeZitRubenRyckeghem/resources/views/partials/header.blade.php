@@ -12,6 +12,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{route('about')}}">About</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('admin.index')}}">Admin</a>
+            </li>
         </ul>
         <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
