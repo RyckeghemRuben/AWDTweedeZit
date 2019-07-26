@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+        @include('partials.error')
         <form method="post" action="{{route('itemcreate')}}">
             <div class="form-group">
                 <label for = "title">Titel</label>

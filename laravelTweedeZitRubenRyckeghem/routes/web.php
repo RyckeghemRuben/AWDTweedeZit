@@ -52,11 +52,23 @@ Route::get('/item/{id}', function ($id) {
 })->name('item');
 
 //item create
-Route::post('/itemcreate',function (\Illuminate\Http\Request $request){
+Route::post('/itemcreate',function (\Illuminate\Http\Request $request,
+                                    Illuminate\Validation\Factory $validator){
+   $validation = $validator->make($request->all(),[
+        'title' => 'required|max:20',
+        'content' => 'required|min:10'
+    ]);
 
-   // $data = $request->all();
-      $title = $request->input('title');
-    return redirect('adminindex')->with('forminput', $title);
+   if($validation->fails()){
+
+       return redirect()->back()->withErrors($validation);
+
+   }else{
+
+       $title = $request->input('title');
+       return redirect('adminindex')->with('forminput', $title);
+   }
+
 
 })->name('itemcreate');
 
