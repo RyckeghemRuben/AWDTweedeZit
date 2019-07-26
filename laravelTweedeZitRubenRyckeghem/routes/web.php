@@ -52,8 +52,12 @@ Route::get('/item/{id}', function ($id) {
 })->name('item');
 
 //item create
-Route::post('/itemcreate',function (){
-return redirect()->route('admin.index');
+Route::post('/itemcreate',function (\Illuminate\Http\Request $request){
+
+   // $data = $request->all();
+      $title = $request->input('title');
+    return redirect('adminindex')->with('forminput', $title);
+
 })->name('itemcreate');
 
 //admin routes

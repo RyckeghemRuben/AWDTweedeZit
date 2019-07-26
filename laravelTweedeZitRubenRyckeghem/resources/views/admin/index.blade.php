@@ -3,6 +3,12 @@
 @section('content')
 
  <div class="container">
+     <!--controle op sessie data-->
+    @if(session('forminput'))
+     <div class="alert alert-success" role="alert">
+         {{session('forminput')}}
+     </div>
+    @endif
      <div class="jumbotron">
          <h1 class="display-4">Zoekertje 4</h1>
          <p class="lead">Elektrische fiets</p>
