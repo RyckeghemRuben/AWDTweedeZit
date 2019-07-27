@@ -30,6 +30,7 @@ Route::get('/app', 'HomeController@index')->name('loggedin');
 
 
 //item route
+
 Route::get('/item/{id}', function ($id) {
 
     if($id=='1'){
@@ -55,6 +56,8 @@ Route::get('/item/{id}', function ($id) {
     return view('content.item',['nieuweVar'=>$data]);
 })->name('item');
 
+
+/*
 //item create
 Route::post('/itemcreate',function (\Illuminate\Http\Request $request,
                                     Illuminate\Validation\Factory $validator){
@@ -75,6 +78,14 @@ Route::post('/itemcreate',function (\Illuminate\Http\Request $request,
 
 
 })->name('itemcreate');
+*/
+
+Route::post('/itemcreate', [
+
+    'uses' => 'ItemController@postCreateItem',
+    'as' => 'itemcreate'
+
+]);
 
 //admin routes
 /*
