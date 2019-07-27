@@ -8,9 +8,9 @@
             <hr>
         <div class="row">
 
-            <h3 style="width: 100%">{{$nieuweVar['titel']}}</h3>
+            <h3 style="width: 100%">{{$item->title}}</h3>
             <br><br>
-            <h4 style="float: left">Staat:{{$nieuweVar['staat']}}</h4>
+            <h4 style="float: left">Details:{{$item->content}}</h4>
         </div>
     </div>
 @endsection

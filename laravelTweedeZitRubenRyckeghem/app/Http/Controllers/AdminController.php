@@ -1,20 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Item;
 use Illuminate\Http\Request;
 use test\Mockery\Adapter\Phpunit\MockeryPHPUnitIntegrationTest;
 
 class AdminController extends Controller
 {
-    public function getEdit(){
-        return view('admin.edit');
+    public function getEdit($id){
+        $item = Item::find($id);
+        return view('admin.edit',['item' => $item]);
     }
     public function getCreate(){
         return view('admin.create');
 
     }
     public function getIndex(){
-        return view('admin.index');
+        $items = Item::orderBy('created_at','desc')->get();
+        return view('admin.index',['items'=>$items]);
     }
 }

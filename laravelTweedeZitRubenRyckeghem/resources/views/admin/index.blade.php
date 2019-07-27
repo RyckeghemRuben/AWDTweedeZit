@@ -9,14 +9,15 @@
          {{session('forminput')}}
      </div>
     @endif
-     <div class="jumbotron">
-         <h1 class="display-4">Zoekertje 4</h1>
-         <p class="lead">Elektrische fiets</p>
-         <hr class="my-4">
-         <p>Gaat tot 70km/u</p>
-         <a class="btn btn-primary btn-lg" href="{{route('admin.create')}}" role="button">Create</a>
-         <a class="btn btn-info btn-lg" href="{{route('admin.edit')}}" role="button">Edit</a>
+     <hr>
+     <a class="btn btn-primary btn-lg" href="{{route('admin.create')}}" role="button">Create</a>
+    <hr>
+     @foreach($items as $item)
+     <div class="row" style="margin-top: 1em;">
+         <h2 class="col-10">Title: {{$item->title}}</h2>
+         <a class="col-2 btn btn-info btn-lg" href="{{route('admin.edit',['id'=>$item->id])}}" role="button">Edit</a>
      </div>
+    @endforeach
  </div>
 
 @endsection

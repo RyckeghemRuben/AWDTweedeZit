@@ -31,54 +31,13 @@ Route::get('/app', 'HomeController@index')->name('loggedin');
 
 //item route
 
-Route::get('/item/{id}', function ($id) {
+Route::get('/item/{id}',[
+    'uses' => 'ItemController@getItem',
+    'as' => 'item'
 
-    if($id=='1'){
-
-        $data= [
-            'titel' => 'Boardgames voor jong en oud',
-            'staat' => 'Gebruikt'
-        ];
-
-    }elseif ($id=='2'){
-        $data= [
-            'titel' => 'Gitaar van Gibson in goede staat',
-            'staat' => 'Gebruikt'
-        ];
-    }elseif ($id=='3'){
-        $data= [
-            'titel' => 'Rode voetbal van Nike',
-            'staat' => 'Nieuw'
-        ];
-    }
+]);
 
 
-    return view('content.item',['nieuweVar'=>$data]);
-})->name('item');
-
-
-/*
-//item create
-Route::post('/itemcreate',function (\Illuminate\Http\Request $request,
-                                    Illuminate\Validation\Factory $validator){
-   $validation = $validator->make($request->all(),[
-        'title' => 'required|max:20',
-        'content' => 'required|min:10'
-    ]);
-
-   if($validation->fails()){
-
-       return redirect()->back()->withErrors($validation);
-
-   }else{
-
-       $title = $request->input('title');
-       return redirect('admin')->with('forminput', $title);
-   }
-
-
-})->name('itemcreate');
-*/
 
 Route::post('/itemcreate', [
 
@@ -87,30 +46,21 @@ Route::post('/itemcreate', [
 
 ]);
 
+
+Route::post('/itemupdate', [
+
+    'uses' => 'ItemController@postUpdateItem',
+    'as' => 'itemupdate'
+
+]);
 //admin routes
-/*
-Route::name('admin.')->group(function (){
 
-    Route::get('/admincreate', function () {
-        return view('admin.create');
-    })->name('create');
-
-    Route::get('/adminedit', function () {
-        return view('admin.edit');
-    })->name('edit');
-
-    Route::get('/admin', function () {
-        return view('admin.index');
-    })->name('index');
-
-});
-*/
 Route::group(['prefix' => 'admin'], function (){
     Route::get('',[
         'uses' => 'AdminController@getIndex',
         'as' => 'admin.index'
     ]);
-    Route::get('edit',[
+    Route::get('edit/{id}',[
         'uses' => 'AdminController@getEdit',
         'as' => 'admin.edit'
     ]);
