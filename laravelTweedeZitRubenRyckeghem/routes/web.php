@@ -11,11 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+//deze route op deze manier, omdat men data gaat moeten ophalen
+Route::get('/', [
+    'uses' => 'ItemController@getIndex',
+    'as' => 'home'
+
+]);
 
 
+//deze route op volgende manier waarbij enkel een view moet worden weergegeven worden
 Route::get('/about', function () {
     return view('other.about');
 })->name('about');
