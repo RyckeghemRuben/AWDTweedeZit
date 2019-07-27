@@ -66,13 +66,14 @@ Route::post('/itemcreate',function (\Illuminate\Http\Request $request,
    }else{
 
        $title = $request->input('title');
-       return redirect('adminindex')->with('forminput', $title);
+       return redirect('admin')->with('forminput', $title);
    }
 
 
 })->name('itemcreate');
 
 //admin routes
+/*
 Route::name('admin.')->group(function (){
 
     Route::get('/admincreate', function () {
@@ -83,8 +84,24 @@ Route::name('admin.')->group(function (){
         return view('admin.edit');
     })->name('edit');
 
-    Route::get('/adminindex', function () {
+    Route::get('/admin', function () {
         return view('admin.index');
     })->name('index');
 
 });
+*/
+Route::group(['prefix' => 'admin'], function (){
+    Route::get('',[
+        'uses' => 'AdminController@getIndex',
+        'as' => 'admin.index'
+    ]);
+    Route::get('edit',[
+        'uses' => 'AdminController@getEdit',
+        'as' => 'admin.edit'
+    ]);
+    Route::get('create',[
+        'uses' => 'AdminController@getCreate',
+        'as' => 'admin.create'
+    ]);
+});
+
