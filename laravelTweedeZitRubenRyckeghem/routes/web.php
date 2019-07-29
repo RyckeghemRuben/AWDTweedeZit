@@ -11,11 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+//deze route op deze manier, omdat men data gaat moeten ophalen
+Route::get('/', [
+    'uses' => 'ItemController@getIndex',
+    'as' => 'home'
+
+]);
 
 
+//deze route op volgende manier waarbij enkel een view moet worden weergegeven worden
 Route::get('/about', function () {
     return view('other.about');
 })->name('about');
@@ -26,65 +30,48 @@ Route::get('/app', 'HomeController@index')->name('loggedin');
 
 
 //item route
-Route::get('/item/{id}', function ($id) {
 
-    if($id=='1'){
+Route::get('/item/{id}',[
+    'uses' => 'ItemController@getItem',
+    'as' => 'item'
 
-        $data= [
-            'titel' => 'Boardgames voor jong en oud',
-            'staat' => 'Gebruikt'
-        ];
-
-    }elseif ($id=='2'){
-        $data= [
-            'titel' => 'Gitaar van Gibson in goede staat',
-            'staat' => 'Gebruikt'
-        ];
-    }elseif ($id=='3'){
-        $data= [
-            'titel' => 'Rode voetbal van Nike',
-            'staat' => 'Nieuw'
-        ];
-    }
+]);
 
 
-    return view('content.item',['nieuweVar'=>$data]);
-})->name('item');
 
-//item create
-Route::post('/itemcreate',function (\Illuminate\Http\Request $request,
-                                    Illuminate\Validation\Factory $validator){
-   $validation = $validator->make($request->all(),[
-        'title' => 'required|max:20',
-        'content' => 'required|min:10'
+Route::post('/itemcreate', [
+
+    'uses' => 'ItemController@postCreateItem',
+    'as' => 'itemcreate'
+
+]);
+
+
+Route::post('/itemupdate', [
+
+    'uses' => 'ItemController@postUpdateItem',
+    'as' => 'itemupdate'
+
+]);
+//admin routes
+
+Route::group(['prefix' => 'admin'], function (){
+    Route::get('',[
+        'uses' => 'AdminController@getIndex',
+        'as' => 'admin.index'
+    ]);
+    Route::get('edit/{id}',[
+        'uses' => 'AdminController@getEdit',
+        'as' => 'admin.edit'
+    ]);
+    Route::get('create',[
+        'uses' => 'AdminController@getCreate',
+        'as' => 'admin.create'
+    ]);
+    Route::get('delete/{id}',[
+        'uses' => 'AdminController@getDelete',
+        'as' => 'admin.delete'
     ]);
 
-   if($validation->fails()){
-
-       return redirect()->back()->withErrors($validation);
-
-   }else{
-
-       $title = $request->input('title');
-       return redirect('adminindex')->with('forminput', $title);
-   }
-
-
-})->name('itemcreate');
-
-//admin routes
-Route::name('admin.')->group(function (){
-
-    Route::get('/admincreate', function () {
-        return view('admin.create');
-    })->name('create');
-
-    Route::get('/adminedit', function () {
-        return view('admin.edit');
-    })->name('edit');
-
-    Route::get('/adminindex', function () {
-        return view('admin.index');
-    })->name('index');
-
 });
+
