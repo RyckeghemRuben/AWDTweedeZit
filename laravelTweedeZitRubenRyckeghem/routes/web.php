@@ -68,5 +68,10 @@ Route::group(['prefix' => 'admin'], function (){
         'uses' => 'AdminController@getCreate',
         'as' => 'admin.create'
     ]);
+    Route::get('delete/{id}',[
+        'uses' => 'AdminController@getDelete',
+        'as' => 'admin.delete'
+    ]);
+
 });
 

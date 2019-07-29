@@ -19,4 +19,10 @@ class AdminController extends Controller
         $items = Item::orderBy('created_at','desc')->get();
         return view('admin.index',['items'=>$items]);
     }
+    public function getDelete($id){
+        $item = Item::find($id);
+        $item->delete();
+
+        return redirect()->action('AdminController@getIndex');
+    }
 }

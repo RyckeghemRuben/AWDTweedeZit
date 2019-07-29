@@ -33,7 +33,7 @@ class ItemController extends Controller
 
         $item->save();
 
-        return redirect()->route('home');
+        return redirect()->route('admin.index');
     }
 
     public function postUpdateItem(Request $request){
