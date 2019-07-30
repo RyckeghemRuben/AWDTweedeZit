@@ -18,4 +18,13 @@ class Item extends Model
             'tag_id')->withTimestamps();
 
     }
+
+    public function setTitleAttribute($value)
+    {
+        $this->attributes['title'] = strtolower($value);
+    }
+
+    public function getTitleAttribute($value){
+        return ucfirst(trans($value));
+    }
 }

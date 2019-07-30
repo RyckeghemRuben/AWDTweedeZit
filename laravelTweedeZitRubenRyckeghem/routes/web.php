@@ -37,6 +37,12 @@ Route::get('/item/{id}',[
 
 ]);
 
+Route::get('/item/{id}/like}',[
+    'uses' => 'ItemController@getLikeItem',
+    'as' => 'itemlike'
+
+]);
+
 
 
 Route::post('/itemcreate', [
