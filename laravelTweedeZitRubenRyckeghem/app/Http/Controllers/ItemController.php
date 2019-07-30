@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Item;
 use App\Like;
+use App\User;
 use App\Tag;
 use App\Event;
 
@@ -15,7 +16,8 @@ class ItemController extends Controller
     public function getIndex(){
 
         $items = Item::orderBy('created_at','desc')->paginate(3);
-        return view('welcome',['items'=>$items]);
+        $users = User::all();
+        return view('welcome',['items'=>$items,'users'=>$users]);
     }
 
     public function getItem($id){

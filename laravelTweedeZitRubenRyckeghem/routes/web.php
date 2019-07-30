@@ -25,11 +25,18 @@ Route::get('/event',[
     'uses' => 'EventController@getIndex',
     'as' => 'events'
 ]);
-/*
-Route::get('/event', function () {
-    return view('other.event');
-})->name('events');
-*/
+
+
+Route::get('/profile',[
+    'uses' => 'ProfileController@getIndex',
+    'as' => 'profile'
+]);
+Route::post('/profileUpdate', [
+
+    'uses' => 'ProfileController@postUpdateProfile',
+    'as' => 'profileUpdate'
+
+]);
 
 Auth::routes();
 
@@ -49,7 +56,6 @@ Route::get('/item/{id}/like}',[
     'as' => 'itemlike'
 
 ]);
-
 
 
 Route::post('/itemcreate', [
