@@ -10,7 +10,7 @@
 
             <h3 style="width: 100%">{{$item->title}}</h3>
             <br><br>
-            <h4 style="float: left">Details:{{$item->content}}</h4>
+            <h4 style="float: left">{{$item->content}}</h4>
         </div>
         <hr>
         <p>{{count($item->likes)}} likes

@@ -10,7 +10,7 @@
      </div>
     @endif
      <hr>
-     <a class="btn btn-primary btn-lg" href="{{route('admin.create')}}" role="button">Create</a>
+     <a class="btn btn-primary btn-lg" href="{{route('admin.create')}}" role="button">Create Bericht</a>
     <hr>
      @foreach($items as $item)
      <div class="row" style="margin-top: 1em;">
