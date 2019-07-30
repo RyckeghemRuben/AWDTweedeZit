@@ -20,9 +20,9 @@ Route::get('/', [
 
 
 //deze route op volgende manier waarbij enkel een view moet worden weergegeven worden
-Route::get('/about', function () {
-    return view('other.about');
-})->name('about');
+Route::get('/event', function () {
+    return view('other.event');
+})->name('events');
 
 Auth::routes();
 

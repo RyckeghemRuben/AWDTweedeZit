@@ -14,8 +14,9 @@ class ItemsTableSeeder extends Seeder
     public function run()
     {
         $item = new Item([
-            'title' => 'Boardgames',
-            'content' => 'Ganzenbord'
+            'title' => 'EhackB = ready',
+            'content' => 'Wij zijn klaar voor de volgende EhackB. Hou onze website in de gaten voor meer informatie.'
+
         ]);
         $item->save();
 
