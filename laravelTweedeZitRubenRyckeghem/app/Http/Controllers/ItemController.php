@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Item;
 use App\Like;
 use App\Tag;
+use App\Event;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

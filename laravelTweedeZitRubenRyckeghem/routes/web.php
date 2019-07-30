@@ -20,9 +20,16 @@ Route::get('/', [
 
 
 //deze route op volgende manier waarbij enkel een view moet worden weergegeven worden
+
+Route::get('/event',[
+    'uses' => 'EventController@getIndex',
+    'as' => 'events'
+]);
+/*
 Route::get('/event', function () {
     return view('other.event');
 })->name('events');
+*/
 
 Auth::routes();
 

@@ -19,6 +19,7 @@ class CreateEventsTable extends Migration
             $table->string('content','250');
             $table->string('plaats');
             $table->dateTime('datumTijd');
+            $table->string('afbeelding');
             $table->timestamps();
         });
     }

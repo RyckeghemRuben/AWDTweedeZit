@@ -17,7 +17,8 @@ class EventsTableSeeder extends Seeder
              'title'=>'Overwatch Toernooi',
              'Content'=>'Schrijf je nu in voor dit toernooi.',
              'plaats' => 'Audi 1',
-             'datumTijd' => '2019-09-15 14:30:00'
+             'datumTijd' => '2019-09-15 14:30:00',
+             'afbeelding' => '/images/overwatch.png'
          ]);
          $event->save();
     }
