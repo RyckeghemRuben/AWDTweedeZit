@@ -8,7 +8,7 @@ use App\Event;
 class EventController extends Controller
 {
  public function getIndex(){
-        $events = Event::orderBy('created_at','desc')->get();
+        $events = Event::orderBy('created_at','desc')->with('deelnemers')->get();
         return view('other.event',['events'=>$events]);
  }
 }
