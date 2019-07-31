@@ -20,9 +20,23 @@ Route::get('/', [
 
 
 //deze route op volgende manier waarbij enkel een view moet worden weergegeven worden
-Route::get('/about', function () {
-    return view('other.about');
-})->name('about');
+
+Route::get('/event',[
+    'uses' => 'EventController@getIndex',
+    'as' => 'events'
+]);
+
+
+Route::get('/profile',[
+    'uses' => 'ProfileController@getIndex',
+    'as' => 'profile'
+]);
+Route::post('/profileUpdate', [
+
+    'uses' => 'ProfileController@postUpdateProfile',
+    'as' => 'profileUpdate'
+
+]);
 
 Auth::routes();
 
@@ -42,7 +56,6 @@ Route::get('/item/{id}/like}',[
     'as' => 'itemlike'
 
 ]);
-
 
 
 Route::post('/itemcreate', [

@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Item;
 use App\Like;
+use App\User;
 use App\Tag;
+use App\Event;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
@@ -14,7 +17,8 @@ class ItemController extends Controller
     public function getIndex(){
 
         $items = Item::orderBy('created_at','desc')->paginate(3);
-        return view('welcome',['items'=>$items]);
+        $users = User::all();
+        return view('welcome',['items'=>$items,'users'=>$users]);
     }
 
     public function getItem($id){
@@ -34,11 +38,10 @@ class ItemController extends Controller
         return redirect()->back();
     }
 
-
     public function postCreateItem(Request $request){
 
         $this->validate($request,[
-            'title' => 'required|max:20',
+            'title' => 'required|max:50',
             'content' => 'required|min:10'
         ]);
 

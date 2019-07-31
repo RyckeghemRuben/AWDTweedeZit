@@ -1,12 +1,27 @@
 @extends('layouts.master')
 
 @section('content')
+<div class="container" style="margin-bottom: 1em">
+    <div class="row">
+        <div class="col-lg-5">
+            <img style="max-width: 100%;" src="/images/ehackb.jpg">
+        </div>
+        <div class="col-lg-7">
+            <h2>EhackB 2020</h2><br>
+            <p>Ook in 2020 is er een nieuw EhackB-evenement gepland! Op deze site zal men de details krijgen over
+            het volgende evenement. We kunnen alvast vermelden dat de volgende editie weer op en top zal zijn, want er zal
+            sowieso een laravel workshop plaatsvinden. Deze zal worden gegeven door niemand minder dan Mike Derycke!</p>
+            <hr>
 
+            Aantal inschrijvingen voor EhackB-2020: {{count($users)}}
+        </div>
+    </div>
+</div>
     <div class="container">
         @foreach($items as $item)
         <div class="jumbotron">
-            <h1 class="display-4">Zoekertje {{$item['id']}}</h1>
-            <p class="lead">{{$item['title']}}</p>
+            <h3 class="display-4">{{$item['title']}}</h3>
+            <p class="lead">Geplaatst op:{{$item['created_at']}}</p>
             <hr class="my-4">
                 @foreach($item->tags as $tag)
 
@@ -18,8 +33,6 @@
                     </p>
 
                     @endforeach
-
-            <p>{{$item['content']}}</p>
             <a class="btn btn-primary btn-lg" href="{{route('item',['id'=>$item['id']])}}" role="button">Details</a>
         </div>
         @endforeach
