@@ -3,10 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
 class Event extends Model
 {
     protected $fillable = ['title','content','plaats','datumTijd','afbeelding'];
+
+    public function deelnemers(){
+        return $this->hasMany('App\Deelnemer');
+    }
+
 
     public function setTitleAttribute($value)
     {
@@ -16,4 +20,6 @@ class Event extends Model
     public function getTitleAttribute($value){
         return ucfirst(trans($value));
     }
+
+
 }
