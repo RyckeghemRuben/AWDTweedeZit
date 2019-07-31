@@ -17,6 +17,7 @@ class CreateDeelnemersTable extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->integer('event_id');
+            $table->integer('user_id');
         });
     }
 

@@ -11,6 +11,7 @@ class Event extends Model
         return $this->hasMany('App\Deelnemer');
     }
 
+
     public function setTitleAttribute($value)
     {
         $this->attributes['title'] = strtolower($value);

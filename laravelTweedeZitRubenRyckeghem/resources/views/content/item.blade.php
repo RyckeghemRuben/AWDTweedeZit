@@ -18,7 +18,7 @@
         <hr>
         <p>{{count($item->likes)}} likes
             @if(Auth::check())
-            <a onclick="" id="likeKnop" class="btn btn-outline-primary btn-sm"
+            <a class="btn btn-outline-primary btn-sm"
             href="{{route('itemlike',['id' => $item['id']])}}">Like</a>
             @endif
         </p>

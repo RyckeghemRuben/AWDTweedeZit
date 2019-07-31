@@ -51,6 +51,8 @@ Route::get('/item/{id}',[
 
 ]);
 
+
+
 Route::get('/item/{id}/like}',[
     'uses' => 'ItemController@getLikeItem',
     'as' => 'itemlike'
@@ -94,3 +96,8 @@ Route::group(['prefix' => 'admin'], function (){
 
 });
 
+Route::get('/event/{id}/deelnemer}',[
+    'uses' => 'EventController@getInschrijvenEventDeelnemer',
+    'as' => 'inschrijvenEventDeelnemer'
+
+]);

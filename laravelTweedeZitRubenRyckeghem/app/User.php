@@ -8,9 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    public function event(){
-        return $this->belongsTo('App\Event');
-    }
 
     use Notifiable;
 
