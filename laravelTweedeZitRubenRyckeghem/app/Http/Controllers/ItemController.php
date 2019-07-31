@@ -9,6 +9,7 @@ use App\Tag;
 use App\Event;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ItemController extends Controller
@@ -36,7 +37,6 @@ class ItemController extends Controller
 
         return redirect()->back();
     }
-
 
     public function postCreateItem(Request $request){
 
