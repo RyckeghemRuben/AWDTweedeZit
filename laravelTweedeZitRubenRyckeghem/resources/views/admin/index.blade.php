@@ -19,6 +19,18 @@
          <a class="col-2 btn btn-danger btn-xs" href="{{route('admin.delete',['id'=>$item->id])}}" role="button">Delete</a>
      </div>
     @endforeach
+     <br><br>
+     <hr>
+     <a class="btn btn-primary btn-lg" href="{{route('event.create')}}" role="button">Create Event</a>
+     <hr>
+     @foreach($events as $event)
+            <div class="row" style="margin-top: 1em;">
+                <h2 class="col-8">{{$event->title}}</h2>
+               <a class="col-2 btn btn-info btn-xs" href="{{route('event.edit',['id'=>$event->id])}}" role="button">Edit</a>
+                <a class="col-2 btn btn-danger btn-xs" href="{{route('event.delete',['id'=>$event->id])}}" role="button">Delete</a>
+            </div>
+         @endforeach
+     <br><br>
  </div>
 
 @endsection

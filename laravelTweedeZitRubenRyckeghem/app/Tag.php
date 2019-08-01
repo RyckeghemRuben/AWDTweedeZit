@@ -14,4 +14,9 @@ class Tag extends Model
             'item_tag','tag_id',
             'item_id')->withTimestamps();
     }
+
+    public function events(){
+        return $this->belongsToMany('App\Event','event_tag','tag_id','event_id')
+            ->withTimestamps();
+    }
 }

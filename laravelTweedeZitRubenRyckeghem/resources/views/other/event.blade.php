@@ -14,12 +14,23 @@
                 @else
                 <p class="card-text">Spreker: {{$event->spreker}} </p>
                 @endif
+                @foreach($event->tags as $tag)
+
+                    <p>
+                        Categorie:
+                        <b>
+                            {{$tag->name}}
+                        </b>
+                    </p>
+
+                @endforeach
                 <footer class="blockquote-footer">{{$event->datumTijd}}</footer>
                 <br>
                 @if(Auth::check())
                     @if($deelnemer->contains($event['id']))
-                        <p>Ingeschreven</p>
+                        <p><b>Ingeschreven</b></p>
                         <a href="{{route('uitschrijvenEventDeelnemer',['id' => $deelnemers])}}" class="btn btn-outline-danger">Uitschrijven</a>
+                        <hr>
                     @elseif(count($event->deelnemers) == $event->maxAantalDeelnemers)
                         <p>Volzet!</p>
                     @else

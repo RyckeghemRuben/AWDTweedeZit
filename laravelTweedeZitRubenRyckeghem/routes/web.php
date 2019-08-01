@@ -108,3 +108,30 @@ Route::get('/event/deelnemer/{id}',[
 
 ]);
 
+Route::group(['prefix' => 'admin'], function (){
+    Route::get('eventCreate',[
+        'uses' => 'AdminController@getEventCreate',
+        'as' => 'event.create'
+    ]);
+    Route::get('eventEdit/{id}',[
+        'uses' => 'AdminController@getEventEdit',
+        'as' => 'event.edit'
+    ]);
+    Route::get('eventDelete/{id}',[
+        'uses' => 'AdminController@getEventDelete',
+        'as' => 'event.delete'
+    ]);
+
+});
+
+Route::post('/eventCreate',[
+    'uses' => 'EventController@postCreateEvent',
+    'as' => 'eventCreate'
+]);
+
+Route::post('/eventUpdate', [
+
+    'uses' => 'EventController@postUpdateEvent',
+    'as' => 'eventUpdate'
+
+]);

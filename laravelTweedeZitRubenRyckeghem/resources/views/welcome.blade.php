@@ -34,7 +34,7 @@
                     </p>
 
                     @endforeach
-            
+
             <a class="btn btn-danger
              btn-lg" href="{{route('item',['id'=>$item['id']])}}" role="button">Details</a>
         </div>
