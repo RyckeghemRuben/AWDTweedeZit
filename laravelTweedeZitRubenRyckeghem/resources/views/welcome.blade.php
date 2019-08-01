@@ -11,7 +11,7 @@
             <p>Ook in 2020 is er een nieuw EhackB-evenement gepland! Op deze site zal men de details krijgen over
             het volgende evenement. We kunnen alvast vermelden dat de volgende editie weer op en top zal zijn, want er zal
             sowieso een laravel workshop plaatsvinden. Deze zal worden gegeven door niemand minder dan Mike Derycke!</p>
-            <hr>
+            <hr style="border-color: #f39200">
 
             Aantal inschrijvingen voor EhackB-2020: {{count($users)}}
         </div>
@@ -23,7 +23,7 @@
             <h3 class="display-4" style="color: #e51c28;">{{$item['title']}}</h3>
             <p class="lead">Geplaatst op:{{$item['created_at']}}</p>
             <hr class="my-4">
-            <!--
+
                 @foreach($item->tags as $tag)
 
                     <p>
@@ -34,8 +34,9 @@
                     </p>
 
                     @endforeach
-            -->
-            <a class="btn btn-primary btn-lg" href="{{route('item',['id'=>$item['id']])}}" role="button">Details</a>
+            
+            <a class="btn btn-danger
+             btn-lg" href="{{route('item',['id'=>$item['id']])}}" role="button">Details</a>
         </div>
         @endforeach
             {{$items->links()}}

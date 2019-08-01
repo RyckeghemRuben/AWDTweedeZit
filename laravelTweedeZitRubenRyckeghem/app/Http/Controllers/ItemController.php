@@ -58,7 +58,7 @@ class ItemController extends Controller
     public function postUpdateItem(Request $request){
 
         $this->validate($request,[
-            'title' => 'required|max:20',
+            'title' => 'required|max:50',
             'content' => 'required|min:10'
         ]);
 

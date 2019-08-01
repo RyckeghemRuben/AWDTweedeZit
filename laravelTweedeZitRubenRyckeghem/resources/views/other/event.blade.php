@@ -19,7 +19,7 @@
                 @if(Auth::check())
                     @if($deelnemer->contains($event['id']))
                         <p>Ingeschreven</p>
-                        <a href="{{route('uitschrijvenEventDeelnemer',['id' => $deelnemers])}}" class="btn btn-outline-dark">Uitschrijven</a>
+                        <a href="{{route('uitschrijvenEventDeelnemer',['id' => $deelnemers])}}" class="btn btn-outline-danger">Uitschrijven</a>
                     @elseif(count($event->deelnemers) == $event->maxAantalDeelnemers)
                         <p>Volzet!</p>
                     @else

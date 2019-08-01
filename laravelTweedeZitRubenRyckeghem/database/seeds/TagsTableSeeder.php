@@ -12,16 +12,16 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {
-        $tag = new Tag(['name' => 'Muziekinstrumenten']);
+        $tag = new Tag(['name' => 'Gaming']);
         $tag->save();
 
-        $tag = new Tag(['name' => 'Games']);
+        $tag = new Tag(['name' => 'General']);
         $tag->save();
 
-        $tag = new Tag(['name' => 'Sportmateriaal']);
+        $tag = new Tag(['name' => 'Programming']);
         $tag->save();
 
-        $tag = new Tag(['name' => 'Gezelschapsspellen']);
+        $tag = new Tag(['name' => 'Workshop']);
         $tag->save();
     }
 }

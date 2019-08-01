@@ -1,17 +1,18 @@
 @extends('layouts.master')
 @section('content')
     <div class="container">
+
         <div class="row">
-            <h2>Gegevens:</h2>
-        </div>
-        <div class="row">
-            <h4>Username: {{$user->name}}</h4>
-        </div>
-        <div class="row">
-            <h4>Username: {{$user->email}}</h4>
-            <br>
-            <br>
-        </div>
+            <div class="card" style="width: 100%;">
+                <div class="card-header">
+                    <h3>Gegevens:</h3>
+                </div>
+                <div class="card-body">
+                    <h5>Username: {{$user->name}}</h5>
+                    <h5>Username: {{$user->email}}</h5>
+                </div>
+            </div>
+        </div><br>
         <div class=row>
             <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Change username & password
