@@ -14,7 +14,7 @@
                 @if(Auth::check())
 
                     @if($deelnemer->contains($event['id']))
-                        <p>al ingeschreven</p>
+                        <p>Ingeschreven</p>
                     @else
 
                 <a href="{{route('inschrijvenEventDeelnemer',['id' => $event['id']])}}" class="btn btn-outline-dark">inschrijven</a>
@@ -24,7 +24,7 @@
                     <p>Om je te kunnen inschrijven moet je inloggen</p>
                 @endif
 
-                <p>{{count($event->deelnemers)}}/10 deelnemers</p>
+                <p>{{count($event->deelnemers)}}/{{$event->maxAantalDeelnemers}} deelnemers</p>
             </div>
         </div>
             @endforeach

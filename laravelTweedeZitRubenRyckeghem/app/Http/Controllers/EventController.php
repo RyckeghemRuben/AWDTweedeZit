@@ -27,7 +27,5 @@ class EventController extends Controller
         $event->deelnemers()->save($deelnemer);
         return redirect()->back();
 
-
-
     }
 }

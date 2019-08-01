@@ -3,8 +3,9 @@
         <div class="col-4">
             <ul style="list-style-type: none">
                 <li>
-                    TestFooter
+                    <h4>SPONSORS</h4>
                 </li>
+
             </ul>
         </div>
         <div class="col-4">
