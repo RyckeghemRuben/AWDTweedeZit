@@ -20,6 +20,7 @@ class CreateEventsTable extends Migration
             $table->string('plaats');
             $table->dateTime('datumTijd');
             $table->string('afbeelding');
+            $table->string('spreker');
             $table->integer('maxAantalDeelnemers');
             $table->timestamps();
         });

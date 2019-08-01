@@ -19,6 +19,7 @@ class EventsTableSeeder extends Seeder
              'plaats' => 'Audi 1',
              'datumTijd' => '2020-05-08 14:30:00',
              'afbeelding' => '/images/overwatch.png',
+             'spreker' => '',
              'maxAantalDeelnemers' => 50
          ]);
          $event->save();
@@ -29,7 +30,19 @@ class EventsTableSeeder extends Seeder
             'plaats' => 'Grote Zaal',
             'datumTijd' => '2019-09-08 20:00:00',
             'afbeelding' => '/images/vr.png',
+            'spreker' => '',
             'maxAantalDeelnemers' => 25
+        ]);
+        $event->save();
+
+        $event = new Event([
+            'title'=>'Laravel Workshop',
+            'Content'=>'Ooit al Laravel onder de knie willen hebben? Doe dan mee aan deze workshop die je op weg zet naar een Pro Laravel Programmer',
+            'plaats' => 'Audi 3',
+            'datumTijd' => '2019-09-08 16:00:00',
+            'afbeelding' => '/images/laravel.png',
+            'spreker' => 'Mike Derycke',
+            'maxAantalDeelnemers' => 50
         ]);
         $event->save();
     }
