@@ -17,10 +17,13 @@
                 <footer class="blockquote-footer">{{$event->datumTijd}}</footer>
                 <br>
                 @if(Auth::check())
-
                     @if($deelnemer->contains($event['id']))
                         <p>Ingeschreven</p>
+                        <a href="{{route('uitschrijvenEventDeelnemer',['id' => $deelnemers])}}" class="btn btn-outline-dark">Uitschrijven</a>
+                    @elseif(count($event->deelnemers) == $event->maxAantalDeelnemers)
+                        <p>Volzet!</p>
                     @else
+
                 <a href="{{route('inschrijvenEventDeelnemer',['id' => $event['id']])}}" class="btn btn-outline-dark">inschrijven</a>
                 <hr>
                     @endif
