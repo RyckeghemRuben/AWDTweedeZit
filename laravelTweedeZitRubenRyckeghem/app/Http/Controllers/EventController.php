@@ -13,7 +13,7 @@ class EventController extends Controller
 {
  public function getIndex(){
         $events = Event::orderBy('created_at','desc')->with('deelnemers')->get();
-        $deelnemers = Deelnemer::all();
+        $deelnemers = Deelnemer::where('user_id', '=', Auth::id())->value('id');
         //haal enkel de values op van event_id van de deelnemer (met ->pluck())
         $deelnemer = DB::table('deelnemers')->select('event_id')->where('user_id', '=', Auth::id())->pluck('event_id');
         return view('other.event',['events'=>$events,'deelnemers'=>$deelnemers,'deelnemer'=>$deelnemer]);
@@ -27,7 +27,12 @@ class EventController extends Controller
         $event->deelnemers()->save($deelnemer);
         return redirect()->back();
 
+    }
 
+    public function getUitschrijvenEventDeelnemer($id){
+      $deelnemer = Deelnemer::find($id);
+      $deelnemer->delete();
 
+      return redirect()->action('EventController@getIndex');
     }
 }

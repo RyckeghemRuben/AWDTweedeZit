@@ -101,3 +101,10 @@ Route::get('/event/{id}/deelnemer}',[
     'as' => 'inschrijvenEventDeelnemer'
 
 ]);
+
+Route::get('/event/deelnemer/{id}',[
+    'uses' => 'EventController@getUitschrijvenEventDeelnemer',
+    'as' => 'uitschrijvenEventDeelnemer'
+
+]);
+

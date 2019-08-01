@@ -12,7 +12,7 @@
                 <label for="content">Content</label>
                 <input type="text" class="form-control" id="content" name="content" value="{{$item->content}}">
             </div>
-            @foreach($tags as $tag)
+          @foreach($tags as $tag)
 
                 <div class="checkbox">
                     <label>
@@ -25,6 +25,7 @@
                 </div>
 
                 @endforeach
+
             <input type="hidden" name="id" value="{{$item->id}}">
             @csrf
             <button type="submit" class="btn btn-primary">Submit</button>
